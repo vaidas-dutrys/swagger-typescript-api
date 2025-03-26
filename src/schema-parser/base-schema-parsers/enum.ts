@@ -33,7 +33,7 @@ export class EnumSchemaParser extends MonoSchemaParser {
   override parse() {
     const pathTypeName = this.buildTypeNameFromPath();
 
-    if (this.config.extractEnums && !this.typeName && pathTypeName != null) {
+    if (this.config.extractEnums && this.schema.enum.length !== 1 && !this.typeName && pathTypeName != null) {
       return this.extractEnum(pathTypeName);
     }
 
